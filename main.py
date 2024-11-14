@@ -18,9 +18,11 @@ def character_count(book: str):
             characters[character.lower()] = 1
     return characters
 
-def character_report(file: str, characters: dict[str, int]):
+def character_report(file: str, characters: dict[str, int], num_words):
     keys = sorted(characters.keys())
     print(f"--- Begin report of {file} ---")
+    print(f"{num_words} words found in the document")
+    print()
     for key in keys:
         print(f"The '{key}' character was found {characters[key]} times")
     print("--- End report ---")
@@ -31,4 +33,4 @@ if __name__ == '__main__':
     characters = character_count(book)
     print(count)
     print(characters)
-    report = character_report("books/frankenstein.txt", characters)
+    report = character_report("books/frankenstein.txt", characters, count)
